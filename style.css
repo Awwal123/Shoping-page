@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+.img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.card {
+    position: absolute;
+    top: 50%;         
+    left: 10%;        
+    transform: translateY(-50%); 
+    background: rgb(235,107,204);
+    background: linear-gradient(#e66465, #918d8d, #9198e5);
+    width: 428px;
+    height: 653px;
+    border-radius: 25px;
+}
+.content {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.forms {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: space-between;
+}
+.text-area1 {
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: 1px solid gainsboro;
+}
+.text-area1:hover,.text-area2:hover {
+    border: 2px solid red;
+}
+.text-area2 {
+    width: 50px;
+    padding: 10px;
+    border: 1px solid gainsboro;
+    margin-left: 20px;
+    border-radius: 5px;
+}
+.btn {
+    margin-left: 10px;
+    padding: 10px 30px;
+    margin-left: 20px;
+    color: yellow;
+    border-radius: 5px;
+    border: 2px solid yellow;
+    background-color: transparent;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: black;
+}
+.what_am_buying {
+    margin-top: 30px;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+}
+.number_list {
+    padding: 8px;
+    background-color: yellow;
+    color: black;
+    font-weight: 400;
+    display: inline-block;
+    border-radius: 5px;
+    margin-right: 10px; 
+}
+.item {
+    color: white;
+    display: inline-block;
+    font-weight: 400;
+    flex-grow: 1; 
+}
+.cancel_btn {
+    cursor: pointer;
+    width: 20px;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+.cancel {
+    color: yellow; 
+}
+.horizontal_line {
+    background-color: yellow;
+    margin-top: 3px;
+}

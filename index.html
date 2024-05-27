@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+     <div class="wrapper">
+        <img class="img" src="./shop-rite.jpg" alt="">
+        <div class="card">
+            <div class="content">
+                <h1>Shopping List</h1>
+                <div class="forms">
+                    <form>
+                        <input class="text-area1" type="text" placeholder="Title...">
+                        <input class="text-area2" type="text" value="14">
+                        <button class="btn" type="button">Add</button>
+                    </form>
+                </div>
+                <div class="lists">
+                    <div class="what_am_buying type1">
+                        <p class="number_list">14</p>
+                        <p class="item">Buy Banana</p>
+                        <button class="cancel_btn" type="button">
+                            <img class="cancel" src="./icon-close.svg" alt="close_icon">
+                        </button>
+                    </div>
+                    <hr class="horizontal_line">
+                    
+                    <div class="what_am_buying type2">
+                        <p class="number_list">7</p>
+                        <p class="item">Buy Apples</p>
+                        <button class="cancel_btn" type="button">
+                            <img class="cancel" src="./icon-close.svg" alt="close_icon">
+                        </button>
+                    </div>
+                    <hr class="horizontal_line">
+                
+                    <div class="what_am_buying type3">
+                        <p class="number_list">5</p>
+                        <p class="item">Buy Favorite Book</p>
+                        <button class="cancel_btn" type="button">
+                            <img class="cancel" src="./icon-close.svg" alt="close_icon">
+                        </button>
+                    </div>
+                    <hr class="horizontal_line">
+                
+                    <div class="what_am_buying type4">
+                        <p class="number_list">12</p>
+                        <p class="item">Pay Bill</p>
+                        <button class="cancel_btn" type="button">
+                            <img class="cancel" src="./icon-close.svg" alt="close_icon">
+                        </button>
+                    </div>
+                    <hr class="horizontal_line">
+                
+                    <div class="what_am_buying type5">
+                        <p class="number_list">3</p>
+                        <p class="item">Damdaran Milk</p>
+                        <button class="cancel_btn" type="button">
+                            <img class="cancel" src="./icon-close.svg" alt="close_icon">
+                        </button>
+                    </div>
+                    <hr class="horizontal_line">
+                
+                    <div class="what_am_buying type6">
+                        <p class="number_list">10</p>
+                        <p class="item">Buy Pineapples</p>
+                        <button class="cancel_btn" type="button">
+                            <img class="cancel" src="./icon-close.svg" alt="close_icon">
+                        </button>
+                    </div>
+                    <hr class="horizontal_line">
+                </div>
+            </div>    
+        </div>
+    </div>
+
+    <script>
+  document.addEventListener("DOMContentLoaded", function() {
+
+    function updateButton(button) {
+        button.classList.remove('cancel_btn');
+        button.classList.add('btn');
+        button.innerHTML = "Add";
+        button.style.color = 'yellow';
+        button.style.border = '2px solid yellow';
+        button.style.backgroundColor = 'transparent';
+        button.style.padding = '10px 30px'; 
+    }
+
+    function updateToCancel(button) {
+        button.classList.remove('btn');
+        button.classList.add('cancel_btn');
+        button.innerHTML = "<img class='cancel' src='./icon-close.svg' alt='close_icon'>";
+    }
+
+    //   toggle between increasing and decreasing the number
+    function toggleNumber(button) {
+        const textArea2 = document.querySelector('.text-area2');
+        let number = parseInt(textArea2.value, 10);
+        if (button.classList.contains('btn')) {
+            
+            textArea2.value = number + 1;
+        } else if (button.classList.contains('cancel_btn')) {
+        
+            if (!isNaN(number) && number > 0) {
+                textArea2.value = number - 1;
+            }
+        }
+    }
+
+    document.addEventListener('click', function(event) {
+        const target = event.target;
+        if (target.classList.contains('cancel')) {
+            const cancelButton = target.closest('.cancel_btn');
+            if (cancelButton) {
+                updateButton(cancelButton);
+                toggleNumber(cancelButton);
+            }
+        } else if (target.classList.contains('btn')) {
+            updateToCancel(target);
+            toggleNumber(target);
+        }
+    });
+});
+
+</script>
+
+</body>
+</html>
