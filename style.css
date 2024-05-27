@@ -27,7 +27,7 @@ body {
     background: rgb(235,107,204);
     background: linear-gradient(#e66465, #918d8d, #9198e5);
     width: 428px;
-    height: 653px;
+    height: 90vh;
     border-radius: 25px;
 }
 .content {
