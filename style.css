@@ -62,6 +62,7 @@ h1 {
     margin-left: 20px;
     border-radius: 5px;
 }
+
 .btn {
     margin-left: 10px;
     padding: 10px 30px;
@@ -71,6 +72,16 @@ h1 {
     border: 2px solid yellow;
     background-color: transparent;
     cursor: pointer;
+}
+.btn_1 {
+   cursor: not-allowed; 
+   margin-left: 10px;
+    padding: 10px 30px;
+    margin-left: 20px;
+    color: yellow;
+    border-radius: 5px;
+    border: 2px solid yellow;
+    background-color: transparent;
 }
 .btn:hover {
     background-color: black;
