@@ -1,5 +1,107 @@
 document.addEventListener("DOMContentLoaded", function() {
 
+    const data = [
+    {
+        id: 1,
+        product: "Apple",
+        quantity: 4
+    },
+    {
+        id: 2,
+        product: "Egg",
+        quantity: 4
+    },
+    {
+        id: 3,
+        product: "Orange",
+        quantity: 4
+    },
+    {
+        id: 4,
+        product: "Apple",
+        quantity: 4
+    }
+]
+
+const list = document.querySelector("#lists");
+
+const form = document.querySelector("#add");
+
+const inputOne = document.querySelector("#name");
+const inputTwo = document.querySelector("#quantity");
+
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    console.log("before adding data",data)
+    const productName = inputOne.value;
+    const productQuantity = inputTwo.value;
+    const quantity = parseInt(productQuantity);
+
+    if(productName && quantity > 0 ){
+
+        const item = {
+            id: data.length + 1,
+            product: productName,
+            quantity: quantity
+        }
+
+        data.push(item);
+
+        inputOne.value = '';
+        inputTwo.value = 0;
+        console.log("after adding data",data)
+        setData()
+    }
+})
+
+
+    function setData (){
+        list.innerHTML = ''
+        data.forEach(item => {
+            const myDiv = document.createElement("div");
+            myDiv.classList.add("what_am_buying")
+            
+            const prodcutCount = document.createElement("p");
+            prodcutCount.textContent = item.quantity
+            prodcutCount.classList.add("number_list");
+
+            const productName = document.createElement("p");
+            productName.textContent =  item.product
+            productName.classList.add("item")
+
+            const button = document.createElement("button");
+            button.classList.add("cancel_btn");
+
+            const icon = document.createElement("img");
+            icon.src = "./icon-close.svg"
+            icon.classList.add("cancel")
+
+            const line = document.createElement("hr")
+            line.classList.add("horizontal_line");
+
+            button.appendChild(icon);
+
+            button.addEventListener('click', (event) => {
+                const index = data.findIndex(i => i.id == item.id); 
+                data.splice(index,1);
+                setData();
+            })
+
+            myDiv.appendChild(prodcutCount);
+            myDiv.appendChild(productName);
+            myDiv.appendChild(button);
+
+            list.appendChild(myDiv)
+            list.appendChild(line)
+
+
+        })
+    }
+
+    setData()
+
     function updateButton(button) {
         button.classList.remove('cancel_btn');
         button.classList.add('btn');
